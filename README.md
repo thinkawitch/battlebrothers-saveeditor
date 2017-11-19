@@ -7,6 +7,13 @@ With the help of original steam guide https://steamcommunity.com/sharedfiles/fil
 First you need to edit editor.php file and set your values for $loadFromFile, $saveToFile, $brothersCount.
 Brothers count is total number of men in your company.
 
+***Always backup your saved games files!*** 
+
+### List brothers stats
+```
+php editot.php --list
+```
+
 ### Set action points for brother
 ```
 php editot.php --set-action-points --brother 1 --points 15
