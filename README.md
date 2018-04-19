@@ -11,17 +11,17 @@ Brothers count is total number of men in your company.
 
 ### List brothers stats
 ```
-php editot.php --list
+php editor.php --list
 ```
 
 ### Set action points for brother
 ```
-php editot.php --set-action-points --brother 1 --points 15
+php editor.php --set-action-points --brother 1 --points 15
 ```
 
 ### Set stats for brother
 ```
-php editot.php --set-stats --brother 1 --stats "100 70 120 95 95 75 75 122"
+php editor.php --set-stats --brother 1 --stats "100 70 120 95 95 75 75 122"
 ```
 
 Stats are space separated values of: hitpoints resolve fatigue melee.skill range.skill melee.defence range.defence initiative.

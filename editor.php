@@ -3,9 +3,9 @@
 // Tested on game version 1.1.0.6 GOG
 // https://steamcommunity.com/sharedfiles/filedetails/?id=598903989
 
-$loadFromFile = './test.sav';
-$brothersCount = 13;
-$saveToFile = './out.sav';
+$loadFromFile = './444.sav';
+$brothersCount = 14;
+$saveToFile = './444-2.sav';
 
 $selfFile = basename(__FILE__);
 $options = getopt('h', ['help', 'list', 'set-stats', 'brother:', 'stats:', 'set-action-points', 'points:']);
@@ -120,6 +120,11 @@ foreach ($positions as $pos) {
     $statsLineOffset = $pos + $wordHumanLen + 6;
     $statsLine = substr($content, $statsLineOffset, 15);
     $brotherStats = [];
+    $brotherAP = 0;
+    //action points
+    $c = substr($content, $statsLineOffset-1, 1);
+    $brotherAP = ord($c);
+    //stats
     for ($i=0; $i<16; $i+=2) {
         $c = substr($statsLine, $i);
         $val = ord($c);
@@ -127,6 +132,7 @@ foreach ($positions as $pos) {
     }
     if ($doCommand == 'list') {
         echo 'brother '.$bc.PHP_EOL;
+        echo 'action points:'.$brotherAP.PHP_EOL;
         echo bin2hex($statsLine).PHP_EOL;
         echo getInlineBrotherStats($brotherStats);
         echo PHP_EOL.PHP_EOL;
@@ -138,6 +144,7 @@ foreach ($positions as $pos) {
         foreach ($brotherSetStats as $sv) {
             echo $statsNames[$sk].': '.$sv.PHP_EOL;
             $newStatsLine .= chr($sv).chr(0);
+            $sk++;
         }
         $newStatsLine = substr($newStatsLine, 0, 15);
         echo bin2hex($newStatsLine).PHP_EOL;
