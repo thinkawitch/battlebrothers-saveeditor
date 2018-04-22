@@ -1,11 +1,11 @@
 <?php
 // Edit Battle brothers saved game.
-// Tested on game version 1.1.0.6 GOG
+// Tested on game version 1.1.0.8 GOG
 // https://steamcommunity.com/sharedfiles/filedetails/?id=598903989
 
-$loadFromFile = './444.sav';
+$loadFromFile = './333.sav';
 $brothersCount = 14;
-$saveToFile = './444-2.sav';
+$saveToFile = './333.sav';
 
 $selfFile = basename(__FILE__);
 $options = getopt('h', ['help', 'list', 'set-stats', 'brother:', 'stats:', 'set-action-points', 'points:']);
@@ -83,8 +83,20 @@ $wordHuman = 'human';
 $wordHumanLen = strlen($wordHuman);
 $lastPos = 0;
 $positions = [];
+$bc = 0;
 while (($lastPos = strpos($content, $wordHuman, $lastPos)) !== false) {
-    $positions[] = $lastPos;
+    $brotherPos = $lastPos;
+    $bc++;
+
+    // check if this "learned" brother
+    $mark1 = substr($content, $lastPos + $wordHumanLen + 5, 1);
+    $v1 = ord($mark1);
+    if ($v1 == 7) {
+        echo "v1:".$bc.PHP_EOL;
+        $brotherPos += 14;
+    }
+
+    $positions[] = $brotherPos;
     if (count($positions) == $brothersCount) break; // our brothers are first, but there are other humans too
     $lastPos = $lastPos + $wordHumanLen;
 }
@@ -196,3 +208,21 @@ function saveToFile($filename, $data) {
         fclose($h);
     }
 }
+
+
+/*
+1 - hakon
+2 - alfgeir
+3 - arne
+4 - alberich
+5 - wilreich
+6 - torvald
+7 - свейн
+8 - wolfgang
+9 - leif
+10 - reimund
+11 - espen
+12 - eberold
+13 - torkel
+14 - тобьёрн
+*/

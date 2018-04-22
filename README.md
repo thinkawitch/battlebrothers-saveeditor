@@ -1,5 +1,5 @@
 # Simple editor for Battle brothers saves.
-Made on php, windows for game version 1.1.0.6 GOG. 
+Made on php, windows for game version 1.1.0.8 GOG. 
 
 With the help of original steam guide https://steamcommunity.com/sharedfiles/filedetails/?id=598903989
 
