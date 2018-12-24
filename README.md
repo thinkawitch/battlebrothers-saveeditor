@@ -1,3 +1,7 @@
+# New editor for Battle Brothers 1.2.x on reddit
+
+https://www.reddit.com/r/BattleBrothers/comments/a1yc2t/bbedit_110/
+
 # Simple editor for Battle brothers saves.
 Made on php, windows for game version 1.1.0.8 GOG. 
 
